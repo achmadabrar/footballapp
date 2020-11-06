@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FootballScheduleApp</string>
+    <string name="detail_league">League Detail</string>
+    <string name="list_league">List League</string>
+</resources>
