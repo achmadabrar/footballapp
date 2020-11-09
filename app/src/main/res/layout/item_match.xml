@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_logo_home"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintDimensionRatio="0.8:1"
+            tools:background="@color/colorPrimaryNew"
+            android:layout_margin="12dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/tv_home"
+            tools:text="Home Team"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_margin="14dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_vs"
+            app:layout_constraintStart_toEndOf="@id/iv_logo_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_score_home"
+            tools:text="1"
+            android:visibility="gone"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_margin="2dp"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/tv_home"
+            app:layout_constraintStart_toStartOf="@id/tv_home"
+            app:layout_constraintEnd_toEndOf="@id/tv_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/tv_venue"
+            tools:text="Gelora Bung Karno"
+            android:layout_margin="10dp"
+            app:layout_constraintBottom_toTopOf="@id/tv_vs"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_vs"
+            android:text="VS"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:id="@+id/tv_away"
+            tools:text="Away Team"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_margin="14dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_vs"
+            app:layout_constraintEnd_toStartOf="@id/iv_logo_away"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_score_away"
+            tools:text="1"
+            android:visibility="gone"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_margin="2dp"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/tv_away"
+            app:layout_constraintStart_toStartOf="@id/tv_away"
+            app:layout_constraintEnd_toEndOf="@id/tv_away"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" />
+
+        <ImageView
+            android:id="@+id/iv_logo_away"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintDimensionRatio="0.8:1"
+            tools:background="@color/colorPrimaryNew"
+            android:layout_margin="12dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

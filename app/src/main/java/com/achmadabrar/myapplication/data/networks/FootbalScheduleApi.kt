@@ -25,14 +25,14 @@ interface FootbalScheduleApi {
     fun getDetailLeague(@Query("id") idLeague: Long): Single<LeagueResponse>
 
     @GET(EVENT_NEXT_LEAGUE)
-    fun getNextMatch(@Query("id") idLeague: Long): NextEventResponse
+    fun getNextMatch(@Query("id") idLeague: Long): Single<NextEventResponse>
 
     @GET(EVENT_PAST_LEAGUE)
-    fun getPastMatch(@Query("id") idEvent: Long): EventResponse
+    fun getPastMatch(@Query("id") idEvent: Long): Single<EventResponse>
 
     @GET(LOOKUP_EVENT)
-    fun getDetailMatch(@Query("id") idEvent: Long): EventResponse
+    fun getDetailMatch(@Query("id") idEvent: Long): Single<EventResponse>
 
     @GET(SEARCH_EVENTS)
-    fun searchMatch(@Query("e") query: String): EventResponse
+    fun searchMatch(@Query("e") query: String): Single<EventResponse>
 }

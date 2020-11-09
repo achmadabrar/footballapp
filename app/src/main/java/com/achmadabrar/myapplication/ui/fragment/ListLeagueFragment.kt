@@ -43,14 +43,13 @@ class ListLeagueFragment : BaseFragment(), ListLeagueViewHolder.Listener {
         viewModel = ViewModelProviders.of(activity!!, viewModelFactory).get(ListLeagueViewModel::class.java)
 
         viewModel.listLeagueLiveData.observe(viewLifecycleOwner, Observer {
-            if (it[0].isLoading) {
-                recycler_list_league.visibility = View.GONE
-                shimmer_list_league.visibility = View.VISIBLE
+            if (!it.isNullOrEmpty()) {
+                adapter = ListLeagueAdapter(it, this)
+                loadRecyclerView()
             }
-            shimmer_list_league.visibility = View.GONE
-            adapter = ListLeagueAdapter(it, this)
-            loadRecyclerView()
         })
+
+
         (activity as AppCompatActivity).setSupportActionBar(toolbar_list_league)
         (activity as AppCompatActivity).supportActionBar?.setTitle(R.string.list_league)
     }
