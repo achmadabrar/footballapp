@@ -8,16 +8,10 @@ import dagger.android.ContributesAndroidInjector
 abstract class FragmentBuildersModule {
 
     @ContributesAndroidInjector
-    abstract fun contributeHomeFragment(): HomeFragment
-
-    @ContributesAndroidInjector
     abstract fun contributeListLeagueFragment(): ListLeagueFragment
 
     @ContributesAndroidInjector
     abstract fun contributesDeatailLeagueFragment(): DetailLeagueFragment
-
-    @ContributesAndroidInjector
-    abstract fun contributesDetailMatchFragment(): DetailMatchFragment
 
     @ContributesAndroidInjector
     abstract fun contributesNextMatchFragment(): NextMatchFragment
@@ -27,4 +21,7 @@ abstract class FragmentBuildersModule {
 
     @ContributesAndroidInjector
     abstract fun contributesSearchHomeFragment(): SearchHomeFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributesOptionFragment(): OptionFragment
 }

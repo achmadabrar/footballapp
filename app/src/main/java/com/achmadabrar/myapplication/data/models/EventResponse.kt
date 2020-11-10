@@ -5,13 +5,13 @@ import java.util.*
 
 data class EventResponse (
     @SerializedName("strHomeTeam")
-    val homeTeam: String,
+    val homeTeam: String?,
     @SerializedName("strAwayTeam")
-    val awayTeam: String,
+    val awayTeam: String?,
     @SerializedName("intHomeScore")
-    val homeScore: String,
+    val homeScore: String?,
     @SerializedName("intAwayScore")
-    val awayScore: String,
+    val awayScore: String?,
     @SerializedName("dateEvent")
     val date: Date,
     @SerializedName("strTime")

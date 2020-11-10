@@ -6,7 +6,12 @@
         android:title="@string/league" />
 
     <item
-        android:id="@+id/navigation_match"
-        android:icon="@drawable/ic_baseline_schedule_24"
-        android:title="@string/match" />
+        android:id="@+id/navigation_next_match"
+        android:icon="@drawable/ic_next_match"
+        android:title="@string/next_match" />
+    <item
+        android:id="@+id/navigation_prev_match"
+        android:icon="@drawable/ic_prev_match"
+        android:title="@string/prev_match" />
+
 </menu>

@@ -1,13 +1,24 @@
 package com.achmadabrar.myapplication.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.achmadabrar.myapplication.R
 import com.achmadabrar.myapplication.core.base.BaseFragment
-import com.achmadabrar.myapplication.ui.adapters.MatchPagerAdapter
+import com.achmadabrar.myapplication.data.models.Event
+import com.achmadabrar.myapplication.data.networks.NetworkState
+import com.achmadabrar.myapplication.ui.ListLeagueItemDecoration
+import com.achmadabrar.myapplication.ui.activity.DetailMatchActivity
+import com.achmadabrar.myapplication.ui.adapters.MatchAdapter
+import com.achmadabrar.myapplication.ui.viewholders.MatchViewHolder
 import com.achmadabrar.myapplication.ui.viewmodel.MatchViewModel
 import kotlinx.android.synthetic.main.fragment_next_match.*
 import javax.inject.Inject
@@ -16,10 +27,12 @@ import javax.inject.Inject
 /**
  * Abrar
  */
-class NextMatchFragment : BaseFragment() {
+class NextMatchFragment : BaseFragment(), MatchViewHolder.Listener {
 
     @Inject
     lateinit var viewModel: MatchViewModel
+
+    lateinit var adapter: MatchAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,8 +46,53 @@ class NextMatchFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view_pager.adapter = MatchPagerAdapter(requireActivity(), childFragmentManager)
+        viewModel = ViewModelProviders.of(activity!!, viewModelFactory).get(MatchViewModel::class.java)
+
+        viewModel.nextMatchLiveData.observe(viewLifecycleOwner, Observer {
+            if (!it.isNullOrEmpty()) {
+                adapter = MatchAdapter(it, this)
+                loadRecycler()
+            }
+        })
+
+        viewModel.networkStatusLiveData.observe(viewLifecycleOwner, Observer {
+            if (it.status.equals(NetworkState.Status.RUNNING)) {
+                not_found.visibility = View.GONE
+                rv_next_match.visibility = View.GONE
+                please_wait.visibility = View.VISIBLE
+                error.visibility = View.GONE
+            } else if (it.status.equals(NetworkState.Status.SUCCESS)) {
+                not_found.visibility = View.GONE
+                rv_next_match.visibility = View.VISIBLE
+                please_wait.visibility = View.GONE
+                error.visibility = View.GONE
+            } else  if (it.status.equals(NetworkState.Status.EMPTY)){
+                not_found.visibility = View.VISIBLE
+                rv_next_match.visibility = View.GONE
+                please_wait.visibility = View.GONE
+                error.visibility = View.GONE
+            } else {
+                Toast.makeText(requireContext(), "yahh : ${it.msg}", Toast.LENGTH_SHORT).show()
+                not_found.visibility = View.GONE
+                rv_next_match.visibility = View.GONE
+                please_wait.visibility = View.GONE
+                error.visibility = View.VISIBLE
+            }
+        })
+
     }
 
+    fun loadRecycler() {
+        not_found.visibility = View.GONE
+        rv_next_match.visibility = View.VISIBLE
+        rv_next_match.adapter = adapter
+        rv_next_match.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+    }
+
+    override fun onClickEvent(event: Event?) {
+        val intent = Intent(requireContext(), DetailMatchActivity::class.java)
+        intent.putExtra("event", event)
+        startActivity(intent)
+    }
 
 }

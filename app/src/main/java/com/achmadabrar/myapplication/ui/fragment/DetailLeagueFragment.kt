@@ -37,7 +37,7 @@ class DetailLeagueFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProviders.of(activity!!, viewModelFactory).get(ListLeagueViewModel::class.java)
 
-        viewModel.leagueLiveData.observe(viewLifecycleOwner, Observer { leagueUiModel ->
+        viewModel.leagueSelectedLiveData.observe(viewLifecycleOwner, Observer { leagueUiModel ->
             if (!leagueUiModel.logo.isNullOrEmpty()) {
                 Glide.with(this)
                     .load(leagueUiModel.logo)

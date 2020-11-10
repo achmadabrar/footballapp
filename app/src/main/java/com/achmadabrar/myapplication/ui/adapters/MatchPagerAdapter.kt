@@ -8,7 +8,6 @@ import com.achmadabrar.myapplication.ui.fragment.NextMatchFragment
 import com.achmadabrar.myapplication.ui.fragment.PreviousMatchFragment
 
 class MatchPagerAdapter(
-    context: Context,
     fragmentManager: FragmentManager
 ) : FragmentPagerAdapter(fragmentManager) {
 
@@ -18,7 +17,7 @@ class MatchPagerAdapter(
     )
 
     override fun getItem(position: Int): Fragment {
-        return pages[position]
+        return pages[position] as Fragment
     }
 
     override fun getCount(): Int {

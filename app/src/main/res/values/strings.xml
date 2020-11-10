@@ -3,5 +3,12 @@
     <string name="detail_league">League Detail</string>
     <string name="list_league">List League</string>
     <string name="league">league</string>
-    <string name="match">match</string>
+    <string name="next_match">Neext Match</string>
+    <string name="prev_match">Previous Match</string>
+    <string name="see_match">See Match</string>
+    <string name="see_detail">See Detail League</string>
+    <string name="vs">VS</string>
+    <string name="not_found">Ouch, match not found!</string>
+    <string name="please_wait">Pelase Wait . . .</string>
+    <string name="error">Error, check your connection</string>
 </resources>

@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.achmadabrar.myapplication.core.di.ViewModelFactory
 import com.achmadabrar.myapplication.core.di.ViewModelKey
-import com.achmadabrar.myapplication.ui.viewmodel.HomeViewModel
+import com.achmadabrar.myapplication.ui.viewmodel.DetailMatchViewModel
 import com.achmadabrar.myapplication.ui.viewmodel.ListLeagueViewModel
 import com.achmadabrar.myapplication.ui.viewmodel.MatchViewModel
 import dagger.Binds
@@ -19,11 +19,6 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(HomeViewModel::class)
-    internal abstract fun homeViewModel(viewModel: HomeViewModel): ViewModel
-
-    @Binds
-    @IntoMap
     @ViewModelKey(ListLeagueViewModel::class)
     internal abstract fun listLeagueViewModel(viewModel: ListLeagueViewModel): ViewModel
 
@@ -31,4 +26,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(MatchViewModel::class)
     internal abstract fun matchViewModel(viewModel: MatchViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DetailMatchViewModel::class)
+    internal abstract fun detailMatchViewModel(viewModel: DetailMatchViewModel): ViewModel
 }

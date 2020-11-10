@@ -7,6 +7,7 @@ import com.achmadabrar.myapplication.core.base.BaseViewModel
 import com.achmadabrar.myapplication.data.models.League
 import com.achmadabrar.myapplication.data.models.LeagueUiModel
 import com.achmadabrar.myapplication.data.networks.FootbalScheduleApi
+import com.achmadabrar.myapplication.data.networks.NetworkState
 import io.reactivex.Single
 import javax.inject.Inject
 
@@ -27,13 +28,15 @@ class ListLeagueViewModel @Inject constructor(
     var listLeagueLiveData: MutableLiveData<List<LeagueUiModel>> = MutableLiveData()
     var list = mutableListOf<LeagueUiModel>()
 
-    var leagueLiveData: MutableLiveData<LeagueUiModel> = MutableLiveData()
+    var leagueSelectedLiveData: MutableLiveData<LeagueUiModel> = MutableLiveData()
+    val networkStatusLiveData: MutableLiveData<NetworkState> = MutableLiveData()
 
     init {
         loadLeagueData()
     }
 
     private fun loadLeagueData() {
+        networkStatusLiveData.postValue(NetworkState.LOADING)
         disposables.add(
             getAllLeagues().doOnSuccess {
                 it.forEach {
@@ -48,9 +51,11 @@ class ListLeagueViewModel @Inject constructor(
                     })
                 }
             }.subscribe({
+                networkStatusLiveData.postValue(NetworkState.LOADED)
                 listLeagueLiveData.postValue(list)
             }, {
                 Log.d("error", "${it.localizedMessage}")
+                networkStatusLiveData.postValue(NetworkState.FAILED)
             })
         )
     }
