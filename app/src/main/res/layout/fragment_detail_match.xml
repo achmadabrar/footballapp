@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.DetailMatchFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/container_detail_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/view"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="1dp"
+                android:layout_height="0dp" />
+
+            <ImageView
+                android:id="@+id/iv_poster_next"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:background="@color/colorPrimaryNew"
+                android:visibility="gone"
+                android:layout_margin="12dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:id="@+id/iv_logo_home"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/view"
+                android:background="@color/colorPrimaryNew"
+                app:layout_constraintDimensionRatio="0.2:0.2"
+                android:layout_margin="12dp"
+                android:layout_width="0dp"
+                app:layout_constraintBottom_toTopOf="@id/tv_home"
+                android:layout_height="0dp" />
+
+            <ImageView
+                android:id="@+id/iv_logo_away"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/view"
+                android:background="@color/colorPrimaryNew"
+                app:layout_constraintDimensionRatio="0.1:0.1"
+                android:layout_margin="12dp"
+                android:layout_width="0dp"
+                app:layout_constraintBottom_toTopOf="@id/tv_home"
+                android:layout_height="0dp" />
+
+            <TextView
+                android:id="@+id/tv_home"
+                tools:text="Home Team"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_margin="14dp"
+                android:textColor="@color/colorPrimaryNew"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/tv_venue"
+                app:layout_constraintBottom_toTopOf="@id/tv_status_match"
+                app:layout_constraintEnd_toStartOf="@id/tv_vs"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_score_home"
+                tools:text="1"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_margin="2dp"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryNew"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/tv_home"
+                app:layout_constraintStart_toStartOf="@id/tv_home"
+                app:layout_constraintEnd_toEndOf="@id/tv_home"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal" />
+
+            <TextView
+                android:id="@+id/tv_venue"
+                tools:text="Gelora Bung Karno"
+                app:layout_constraintTop_toBottomOf="@id/tv_formation_home"
+                android:layout_margin="10dp"
+                android:textColor="@color/colorPrimaryNew"
+                android:textStyle="bold"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintBottom_toTopOf="@id/tv_vs"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_formation_home"
+                tools:text="4-4-2"
+                app:layout_constraintTop_toBottomOf="@id/iv_logo_home"
+                android:layout_margin="10dp"
+                android:textColor="@color/colorPrimaryNew"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/tv_vs"
+                app:layout_constraintEnd_toEndOf="@id/iv_logo_home"
+                app:layout_constraintStart_toStartOf="@id/iv_logo_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_formation_away"
+                tools:text="4-4-3"
+                android:textColor="@color/colorPrimaryNew"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/iv_logo_home"
+                app:layout_constraintBottom_toTopOf="@id/tv_vs"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/iv_logo_away"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_vs"
+                android:text="@string/vs"
+                android:textColor="@color/colorPrimaryNew"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:id="@+id/tv_away"
+                tools:text="Away Team"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_margin="14dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_venue"
+                app:layout_constraintBottom_toTopOf="@id/tv_status_match"
+                app:layout_constraintStart_toEndOf="@id/tv_vs"
+                android:layout_width="0dp"
+                android:textColor="@color/colorPrimaryNew"
+                android:textStyle="bold"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_score_away"
+                tools:text="1"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_margin="2dp"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryNew"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/tv_away"
+                app:layout_constraintStart_toStartOf="@id/tv_away"
+                app:layout_constraintEnd_toEndOf="@id/tv_away"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal" />
+
+            <TextView
+                android:id="@+id/tv_status_match"
+                tools:text="finished"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_margin="2dp"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryNew"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/tv_score_away"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal" />
+
+            <TextView
+                android:id="@+id/tv_gk_home"
+                tools:text="Gk:"
+                android:textColor="@color/colorPrimaryNew"
+                android:layout_margin="12dp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintTop_toBottomOf="@id/tv_status_match"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_defence_home"
+                tools:text="Defense:"
+                android:textColor="@color/colorPrimaryNew"
+                android:layout_margin="12dp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintTop_toBottomOf="@id/tv_gk_home"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_mid_home"
+                tools:text="Midfielder:"
+                android:textColor="@color/colorPrimaryNew"
+                android:layout_margin="12dp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintTop_toBottomOf="@id/tv_defence_home"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_forward_home"
+                tools:text="Forward:"
+                android:textColor="@color/colorPrimaryNew"
+                android:layout_margin="12dp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintTop_toBottomOf="@id/tv_mid_home"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_subs_home"
+                tools:text="Subs:"
+                android:textColor="@color/colorPrimaryNew"
+                android:layout_margin="12dp"
+                android:textStyle="bold"
+                android:maxLines="3"
+                android:ellipsize="end"
+                app:layout_constraintTop_toBottomOf="@id/tv_forward_home"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_goalscorer_title_home"
+                android:textColor="@color/colorPrimaryNew"
+                android:layout_margin="12dp"
+                android:textStyle="bold"
+                android:maxLines="3"
+                android:ellipsize="end"
+                app:layout_constraintTop_toBottomOf="@id/tv_subs_home"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_gk_away"
+                tools:text="Gk:"
+                android:textColor="@color/colorPrimaryNew"
+                android:layout_margin="12dp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintTop_toBottomOf="@id/tv_status_match"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_defence_away"
+                tools:text="Defense:"
+                android:textColor="@color/colorPrimaryNew"
+                android:layout_margin="12dp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintTop_toBottomOf="@id/tv_gk_home"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_mid_away"
+                tools:text="Midfielder:"
+                android:textColor="@color/colorPrimaryNew"
+                android:layout_margin="12dp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintTop_toBottomOf="@id/tv_defence_home"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_forward_away"
+                tools:text="Forward:"
+                android:textColor="@color/colorPrimaryNew"
+                android:layout_margin="12dp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintTop_toBottomOf="@id/tv_mid_home"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_subs_away"
+                tools:text="Subs:"
+                android:textColor="@color/colorPrimaryNew"
+                android:layout_margin="12dp"
+                android:textStyle="bold"
+                android:maxLines="3"
+                android:ellipsize="end"
+                app:layout_constraintTop_toBottomOf="@id/tv_forward_home"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_goalscorer_title_away"
+                android:textColor="@color/colorPrimaryNew"
+                android:layout_margin="12dp"
+                android:textStyle="bold"
+                android:maxLines="3"
+                android:ellipsize="end"
+                app:layout_constraintTop_toBottomOf="@id/tv_subs_home"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="12dp"
+        android:backgroundTint="@color/colorPrimaryNew"
+        android:src="@drawable/ic_love"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

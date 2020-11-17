@@ -26,5 +26,4 @@ class MatchAdapter(
     override fun getItemCount(): Int {
         return event.size
     }
-
 }

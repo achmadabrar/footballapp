@@ -1,6 +1,5 @@
 package com.achmadabrar.myapplication.ui.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,15 +7,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.achmadabrar.myapplication.R
 import com.achmadabrar.myapplication.core.base.BaseFragment
 import com.achmadabrar.myapplication.data.models.Event
 import com.achmadabrar.myapplication.data.networks.NetworkState
-import com.achmadabrar.myapplication.ui.ListLeagueItemDecoration
-import com.achmadabrar.myapplication.ui.activity.DetailMatchActivity
 import com.achmadabrar.myapplication.ui.adapters.MatchAdapter
 import com.achmadabrar.myapplication.ui.viewholders.MatchViewHolder
 import com.achmadabrar.myapplication.ui.viewmodel.MatchViewModel
@@ -29,6 +24,7 @@ import javax.inject.Inject
 class PreviousMatchFragment : BaseFragment(), MatchViewHolder.Listener {
 
     lateinit var adapter: MatchAdapter
+
     @Inject
     lateinit var viewModel: MatchViewModel
 
@@ -64,7 +60,7 @@ class PreviousMatchFragment : BaseFragment(), MatchViewHolder.Listener {
                 not_found.visibility = View.GONE
                 error.visibility = View.GONE
                 please_wait.visibility = View.GONE
-            } else if (it.status.equals(NetworkState.Status.EMPTY)){
+            } else if (it.status.equals(NetworkState.Status.EMPTY)) {
                 rv_prev_match.visibility = View.GONE
                 not_found.visibility = View.VISIBLE
                 error.visibility = View.GONE
@@ -89,9 +85,10 @@ class PreviousMatchFragment : BaseFragment(), MatchViewHolder.Listener {
     }
 
     override fun onClickEvent(event: Event?) {
-        val intent = Intent(requireContext(), DetailMatchActivity::class.java)
-        intent.putExtra("event", event)
-        startActivity(intent)
+        viewModel.loadDetailMatch(event?.id!!)
+        val transaction = fragmentManager?.beginTransaction()
+        transaction?.replace(R.id.frame_layout_to_detail, DetailMatchFragment())
+        transaction?.commit()
     }
 
 

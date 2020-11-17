@@ -48,11 +48,9 @@ class DetailLeagueFragment : BaseFragment() {
                 tv_league_desc.text = leagueUiModel.desc
             }
 
-            (activity as AppCompatActivity).supportActionBar?.setTitle(leagueUiModel.name)
+            collapsing.title = leagueUiModel.name
         })
 
-        (activity as AppCompatActivity).setSupportActionBar(toolbar_detail_league)
-        setHasOptionsMenu(true)
 
         collapsing.setExpandedTitleColor(Color.TRANSPARENT)
         collapsing.setCollapsedTitleTypeface(Typeface.create(collapsing.expandedTitleTypeface, Typeface.BOLD))
@@ -60,5 +58,12 @@ class DetailLeagueFragment : BaseFragment() {
         back.setOnClickListener {
             fragmentManager?.popBackStack()
         }
+
+        /*fab.setOnClickListener {
+            val transaction = fragmentManager?.beginTransaction()
+            transaction?.replace(R.id.frame_layout_detail, FavoriteMatchFragment())
+            transaction?.addToBackStack(null)
+            transaction?.commit()
+        }*/
     }
 }

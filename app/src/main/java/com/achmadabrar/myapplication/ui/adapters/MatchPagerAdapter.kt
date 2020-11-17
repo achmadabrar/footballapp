@@ -1,6 +1,5 @@
 package com.achmadabrar.myapplication.ui.adapters
 
-import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
@@ -25,7 +24,7 @@ class MatchPagerAdapter(
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
-        return when(position) {
+        return when (position) {
             0 -> "Pertandingan berikutnya"
             else -> "Pertandingan yang lalu"
 

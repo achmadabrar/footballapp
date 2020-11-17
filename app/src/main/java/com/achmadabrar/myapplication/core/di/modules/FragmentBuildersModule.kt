@@ -20,8 +20,14 @@ abstract class FragmentBuildersModule {
     abstract fun contributesPreviousMatchFragment(): PreviousMatchFragment
 
     @ContributesAndroidInjector
-    abstract fun contributesSearchHomeFragment(): SearchHomeFragment
+    abstract fun contributesDetailMatchFragment(): DetailMatchFragment
 
     @ContributesAndroidInjector
     abstract fun contributesOptionFragment(): OptionFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributesFavoriteMatchFragment(): FavoriteMatchFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeMatchFragment(): MatchFragment
 }

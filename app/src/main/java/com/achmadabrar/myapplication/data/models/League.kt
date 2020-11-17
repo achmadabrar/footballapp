@@ -1,6 +1,8 @@
 package com.achmadabrar.myapplication.data.models
 
+import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
+import java.util.*
 
 data class League(
     @SerializedName("idLeague")
@@ -20,5 +22,6 @@ data class League(
     @SerializedName("strDescriptionEN")
     val description: String?,
     @SerializedName("strLogo")
-    val logo: String?
+    val logo: String?,
+    val expiredDate: Date?
 )

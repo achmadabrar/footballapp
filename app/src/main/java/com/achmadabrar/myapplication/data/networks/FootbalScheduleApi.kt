@@ -1,9 +1,6 @@
 package com.achmadabrar.myapplication.data.networks
 
-import com.achmadabrar.myapplication.data.models.LeagueResponse
-import com.achmadabrar.myapplication.data.models.EventMatchResponse
-import com.achmadabrar.myapplication.data.models.EventResponse
-import com.achmadabrar.myapplication.data.models.EventSearchResponse
+import com.achmadabrar.myapplication.data.models.*
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -17,6 +14,7 @@ interface FootbalScheduleApi {
         const val LOOKUP_EVENT = "lookupevent.php"
         const val SEARCH_EVENTS = "searchevents.php"
         const val ALL_LEAGUES = "all_leagues.php"
+        const val TEAM = "lookupteam.php"
     }
 
     @GET(ALL_LEAGUES)
@@ -36,4 +34,7 @@ interface FootbalScheduleApi {
 
     @GET(SEARCH_EVENTS)
     fun searchMatch(@Query("e") query: String): Single<EventSearchResponse>
+
+    @GET(TEAM)
+    fun getTeam(@Query("id") id: String): Single<Teams>
 }

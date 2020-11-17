@@ -3,7 +3,6 @@ package com.achmadabrar.myapplication.core.base
 import android.content.Context
 import androidx.multidex.MultiDex
 import com.achmadabrar.myapplication.core.di.DaggerAppComponent
-//import com.achmadabrar.myapplication.core.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 

@@ -11,4 +11,12 @@
     <string name="not_found">Ouch, match not found!</string>
     <string name="please_wait">Pelase Wait . . .</string>
     <string name="error">Error, check your connection</string>
+    <string name="goal_scorer">Goal Scorer : %s</string>
+    <string name="defence">Defence: %s</string>
+    <string name="goal_keeper">Goal Keeper: %s</string>
+    <string name="midfield">Midfielder: %s</string>
+    <string name="forward">Forwars: %s</string>
+    <string name="subs">Substitution: %s</string>
+    <string name="detail_match">Detail Match</string>
+    <string name="list_empty">Favorite Event is Empty</string>
 </resources>
