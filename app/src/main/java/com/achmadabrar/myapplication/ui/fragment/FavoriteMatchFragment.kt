@@ -40,6 +40,7 @@ class FavoriteMatchFragment : BaseFragment(), FavViewHolder.Listener {
         viewModel.favEventLiveData.observe(viewLifecycleOwner, Observer {
             if (it.isNullOrEmpty()) {
                 tv_empty.visibility = View.VISIBLE
+                recycler_fav_match.visibility = View.GONE
             } else {
                 adapter = FavAdapter(it, this)
                 loadRecycler()
